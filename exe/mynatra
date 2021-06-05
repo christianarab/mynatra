@@ -1,0 +1,4 @@
+#!/user/bin/env ruby 
+require "mynatra/cli"
+
+Mynatra::CLI.start
