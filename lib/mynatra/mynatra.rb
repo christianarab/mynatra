@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "mynatra/version"
-
 module Mynatra
   class User
     attr_accessor :email, :password

@@ -1,8 +1,10 @@
 Feature: User
-    In order to create or find users
-    As a CLI
-    I want users to generate them
 
     Scenario: User
-        When I run `mynatra user email `
-        Then the output should contain
+        When I run `mynatra create email`
+        Then the output should contain "User"
+
+    Scenario: Find User by Email
+        When I run `mynatra find email`
+        Then the output should contain "User"
+

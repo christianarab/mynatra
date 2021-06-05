@@ -97,7 +97,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  aruba
+  aruba (~> 1.1.1)
   cucumber
   mynatra!
   rake (~> 13.0)
