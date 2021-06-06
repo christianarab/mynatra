@@ -1,0 +1,51 @@
+require 'sinatra'
+require './models/<%= name %>'
+
+get '/' do
+  '/<%= name.concat('s') %>/create'
+end
+
+# <%= name.concat('s') %> -> create many (example)
+get '/<%= name.concat('s') %>/create' do
+  <%= name.capitalize %>.create_many
+  redirect :<%= name.concat('s') %>
+end
+
+# <%= name.concat('s') %> -> list all <%= name.concat('s') %>
+get '/<%= name.concat('s') %>' do
+  @<%= name.concat('s') %> = <%= name.capitalize %>.all
+  erb :"<%= name.concat('s') %>/index"
+end
+
+# <%= name %> -> creates new <%= name %>
+post '/<%= name %>/create' do
+  <%= name.capitalize %>.create params[:email]
+  redirect '/<%= name.concat('s') %>'
+end
+
+# <%= name %> -> delete <%= name %>
+post '/delete-<%= name %>/:email' do
+  @<%= name %> = <%= name.capitalize %>.find_by_email(params[:email])
+  @<%= name %>.delete
+  # delete <%= name %> here
+  redirect :<%= name.concat('s') %>
+end
+
+# <%= name %> -> find by email
+get '/<%= name %>/:email' do
+  @<%= name %> = <%= name.capitalize %>.find_by_email(params[:email])
+  erb :"<%= name.concat('s') %>/update"
+end
+
+# replace <%= name %> attribute data
+# with new email and/or password data
+post '/update-<%= name %>/:email' do
+  @<%= name.concat('s') %> = <%= name.capitalize %>.all
+  @<%= name.concat('s') %>.each do |<%= name %>|
+     if <%= name %>.email == params[:email]
+      <%= name %>.email= params[:newemail]
+     else
+     end
+    end
+  redirect :<%= name.concat('s') %>
+end
