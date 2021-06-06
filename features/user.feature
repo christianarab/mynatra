@@ -8,3 +8,6 @@ Feature: User
         When I run `mynatra find email`
         Then the output should contain "User"
 
+    Scenario: Fail this User test
+        When I run `mynatra find email`
+        Then the output should contain "Purple Monkey Dishwasher"
