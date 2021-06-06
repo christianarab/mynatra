@@ -23,12 +23,12 @@ module Mynatra
       Mynatra::Generators::User.start([group, name])
     end 
 
-    desc "post", "Generate a User scaffolding"
+    desc "post", "Generate a Post scaffolding"
     def posts(group, name)
       Mynatra::Generators::Post.start([group, name])
     end 
 
-    desc "comment", "Generate a User scaffolding"
+    desc "comment", "Generate a Comment scaffolding"
     def comments(group, name)
       Mynatra::Generators::Comment.start([group, name])
     end 
