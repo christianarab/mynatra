@@ -1,0 +1,10 @@
+<%= erb :header %>
+<div>
+  <h2>Edit <%= user.email %> Address</h2>
+    <form method='POST' action='/signup-filled'>
+      <h2>New e-mail</h2>
+        <input name='email'><br>
+        <input type='submit'>
+    </form>
+</div>
+<%= erb :footer %>

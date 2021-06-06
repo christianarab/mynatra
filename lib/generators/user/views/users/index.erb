@@ -1,0 +1,14 @@
+<%= erb :header %>
+<link rel="stylesheet" href="/styles/main.css">
+<h1>Users</h1>
+<ul>
+    <% @users.each do |user| %>
+        <form method="POST" action="delete-user/<%= user.email %>">
+            <li>Email: <%= user.email %></li><input type="submit" value="delete">
+        </form>
+         <form method="POST" action="update-user/<%= user.email %>">
+            <li>New e-mail address..</li><input name='newemail'><br><input type="submit">
+        </form>
+    <% end %>
+</ul>
+<% erb :footer %>
