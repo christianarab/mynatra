@@ -1,5 +1,5 @@
-class User
-  attr_accessor :email, :password
+class Users
+  attr_accessor :email
 
   @@Users = []
 
