@@ -1,4 +1,4 @@
-class <%= name.capitalize.concat('s') %>
+class <%= name.capitalize %>
   attr_accessor :email
 
   @@<%= name.capitalize.concat('s') %> = []
@@ -27,7 +27,7 @@ class <%= name.capitalize.concat('s') %>
 
   def self.create_many
     @@<%= name.capitalize.concat('s') %> = (1..25).map do |num| 
-      <%= name %> = User.new
+      <%= name %> = <%= name.capitalize %>.new
       <%= name %>.email = "<%= name %>#{num}@example.com"
       <%= name %>
     end
