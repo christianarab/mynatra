@@ -1,26 +1,40 @@
 class <%= name.capitalize %>
-  attr_accessor :email
+  attr_accessor :id
 
   @@<%= name.capitalize.concat('s') %> = []
 
   def delete
     @@<%= name.capitalize.concat('s') %>.each_with_index do |<%= name %>, index|
-      if self.email == <%= name %>.email
+      if self.id == <%= name %>.id
         @@<%= name.capitalize.concat('s') %>.delete_at(index)
       end
     end
   end
 
-  def self.create(email)
+  def self.create(id)
     <%= name %> = <%= name.capitalize %>.new
-    <%= name %>.email = email
+    <%= name %>.id = id
     @@<%= name.capitalize.concat('s') %> << <%= name %>
   end
 
-  def self.find_by_email(email)
+  def self.find_by_id(id)
     @@<%= name.capitalize.concat('s') %>.each do |<%= name %>|
-      if <%= name %>.email == email
+      if <%= name %>.id == id
         return <%= name %>
+      end
+    end
+  end
+
+  def save
+    if self.id.nil?
+      self.id = new_id
+      @@<%= name.capitalize.concat('s') %>.push(self)
+    else
+      self.id = self.id.to_i
+      @@<%= name.capitalize.concat('s') %>.each_with_index do |post, index|
+        if self.id == <%= name %>.id
+          @@<%= name.capitalize.concat('s') %>[index] = self
+        end
       end
     end
   end
@@ -28,7 +42,7 @@ class <%= name.capitalize %>
   def self.create_many
     @@<%= name.capitalize.concat('s') %> = (1..25).map do |num| 
       <%= name %> = <%= name.capitalize %>.new
-      <%= name %>.email = "<%= name %>#{num}@example.com"
+      <%= name %>.id = "<%= name %>#{num}"
       <%= name %>
     end
   end

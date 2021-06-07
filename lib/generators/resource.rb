@@ -6,22 +6,25 @@ module Mynatra
     class Resource < Thor::Group
       include Thor::Actions
 
-      # Takes in dir, name arguments
+      # Takes resource name, arguments
       argument :name, type: :string
-
-      # Generates empty directory
-      def create_dir
-        empty_directory(name)
-      end
+      argument :arg1, type: :string
+      argument :arg2, type: :string
 
       # Generates model.rb file 
       def create_model
-        template("models/model.erb", "#{name}/models/#{name}.rb")
+        template("models/model.erb", "models/#{name}.rb")
       end
 
-      # TODO: Generate contollers
-      # TODO: Generate views
-    
+      # Generate contoller.rb file
+      def create_controller
+        template("controllers/resource_controller.erb", "controllers/#{name}_controller.rb")
+      end
+
+      # Generate views erb files (index, edit, new)
+      def create_views
+        template("views/resource", "views/#{name}", :recursive => true)
+      end
 
       # Sets source root directory
       def self.source_root
