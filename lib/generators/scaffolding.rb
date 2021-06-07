@@ -29,6 +29,11 @@ module Mynatra
         directory("public", "#{name}/public", :recursive => true)
       end
 
+      # Generates views folder
+      def create_views
+        directory("views", "#{name}/views", :recursive => true)
+      end
+
       # Sets source root directory
       def self.source_root
         File.dirname(__FILE__)
