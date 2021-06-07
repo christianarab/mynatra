@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Mynatra
+  # Test class
   class User
     attr_accessor :email, :password
   
