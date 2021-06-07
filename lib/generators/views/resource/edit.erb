@@ -1,0 +1,12 @@
+<%= erb :header %>
+<link rel="stylesheet" href="/styles/main.css">
+<h1>Edit</h1>
+<form method="POST" action="/<%= name.concat('s') %>/update/<%= @name.id %>">
+  <p>Title:</p>
+    <p>Create title</p>
+  <p>Body:</p>
+  <textarea name="body" type="text"><%= @name.body %></textarea><br>
+  <input type="submit">
+</form>
+<br>
+<%= erb :footer %>

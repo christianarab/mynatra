@@ -1,0 +1,44 @@
+require './models/<%= name %>'
+
+class <%= name.capitalize.concat('s') %>Controller < Sinatra::Base
+  
+  get '/<%= name.concat('s') %>/new' do
+    @<%= name %> = <%= name.capitalize.concat('s') %>.new
+    erb :"<%= name.concat('s') %>/new"
+  end
+
+  <%= name %> '/<%= name.concat('s') %>/create' do
+    <%= name %> = <%= name.capitalize.concat('s') %>.new
+    <%= name %>.<%= arg1 %>, <%= name %>.<%= arg2 %> = params[:<%= arg1 %>], params[:<%= arg2 %>]
+    <%= name %>.save
+    redirect :"<%= name.concat('s') %>"
+  end
+
+  <%= name %> '/<%= name.concat('s') %>/update/:id' do
+    <%= name %> = <%= name.capitalize.concat('s') %>.new
+    <%= name %>.id, <%= name %>.<%= arg1 %>, <%= name %>.<%= arg2 %> = params[:id].to_i, params[:<%= arg1 %>], params[:<%= arg2 %>]
+    <%= name %>.save
+    redirect :"<%= name.concat('s') %>/#{<%= name %>.id}"
+  end
+
+  get '/<%= name.concat('s') %>/:id' do
+    @<%= name %> = <%= name.capitalize.concat('s') %>.find(params[:id].to_i)
+    erb :"<%= name.concat('s') %>/edit"
+  end
+
+  <%= name %> '/<%= name.concat('s') %>/delete/:id' do
+    @<%= name %> = <%= name.capitalize.concat('s') %>.find(params[:id].to_i)
+    @<%= name %>.delete
+    redirect :<%= name.concat('s') %>
+  end
+
+  # list all <%= name.concat('s') %>
+  get '/<%= name.concat('s') %>' do
+    @<%= name.concat('s') %> = <%= name.capitalize.concat('s') %>.all
+    erb :"<%= name.concat('s') %>/index"
+  end
+
+  get '/<%= name.concat('s') %>/index' do
+    redirect :<%= name.concat('s') %>
+  end
+end
