@@ -1,17 +1,15 @@
-Feature: Generate Templates for Mynatra User
-    In order to generate User template for Mynatra
-    As a CLI
-    I want mynatra to generate the files for me
+Feature: Generators for Mynatra 
 
-    Scenario: Recipes
-        When I run `mynatra resource user`
+    Scenario: Mynatra resource [RESOURCE_NAME] [DIRECTORY DESTINATION]
+        When I run `mynatra resource user destination`
         Then the following files should exist:
-            | dinner/steak.txt |
-        Then the file "dinner/steak.txt" should contain:
-            """
-            ##### Ingredients #####
-            Ingredients for delicious steak go here.
+        | destination/models/user.rb |
+        | destination/public/styles/main.css |
+        | destination/app.rb |
 
-            ##### Instructions #####
-            Tips on how to make delicious steak go here.
-            """
+    Scenario: Mynatra resource [RESOURCE_NAME] [DIRECTORY DESTINATION]
+        When I run `mynatra resource blog blogapp`
+        Then the following files should exist:
+        | blogapp/models/blog.rb |
+        | blogapp/public/styles/main.css |
+        | blogapp/app.rb |

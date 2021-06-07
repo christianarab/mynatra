@@ -1,9 +1,0 @@
-<%# This will require routing with post to work %>
-<h1>Add Comment</h1>
-<form method="POST" action="/posts/<%= @post.id %>/comments/new">
-  <p>Author:</p>
-  <input name="author" value="enter your name"><br>
-  <p>Body:</p>
-  <textarea name="body" type="text">enter comment</textarea><br>
-  <input type="submit">
-</form>
