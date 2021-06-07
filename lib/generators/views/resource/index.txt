@@ -1,16 +1,5 @@
-<%= erb :header %>
+
 <link rel='stylesheet' href='/styles/main.css'>
-<h1><%= name.concat('s') %>/</h1>
-<ul>
-    <% @name.concat('s').each do | <%= name %> | %>
-        <form method='POST' action='delete-<%= name %>//<%= <%= name %>.email %>'>
-            <li>Email: <%= <%= name %>.email %></li><input type='submit' value='delete'>
-        </form>
-         <form method='POST' action='update-<%= name %>/< <%= name %>.email'>
-            <li>New e-mail address..</li><input name='newemail'><br><input type='submit'>
-        </form>
-    <% end %>
-</ul>
 
 <div>
   <h2><%= name %> Signup with E-mail:</h2>
@@ -21,4 +10,3 @@
     </form>
 </div>
 
-<% erb :footer %>

@@ -1,3 +1,4 @@
+# User class sample
 class User
   attr_accessor :email, :password
 
