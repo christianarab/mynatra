@@ -1,13 +1,12 @@
-<%= erb :header %>
-
-<h1>New <%= name %></h1>
-
-<form method="POST" action="/<%= name.concat('s') %>/create">
-    <p><%= arg1 %>:</p>
-    <input name="<%= arg1 %>"><br>
-    <p><%= arg2 %>:</p>
-    <textarea name="<%= arg2 %>" type="text"></textarea><br>
-    <input type="submit">
-</form>
-
-<%= erb :footer %>
+* insert header
+<div>
+  <h1>New <%= @name_singular.capitalize %></h1>
+  <form method='POST' action='/<%= @name_plural %>/create'>
+  <% @attributes.each do |attribute| %>
+      <p><%= attribute %>:
+        <input name='<%= attribute %>'><br>
+  <% end -%>
+        <input type='submit'>
+    </form>
+</div>
+* insert footer

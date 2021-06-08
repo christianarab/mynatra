@@ -15,14 +15,10 @@ module Mynatra
     end 
     
     desc "resource [NAME] [ARG1] [ARG2]", "Generate a resource with 2 arguments i.e mynatra resource post title body"
-    def resource(name, arg1, arg2)
-      Mynatra::Generators::Resource.start([ name, arg1, arg2 ])
+    def resource(name, *attributes)
+      puts "The arguments are: #{attributes}"
+      puts "Args is: #{attributes.class}"
+      Mynatra::Generators::Resource.start([ name, attributes ])
     end 
-
-    # desc "resource [NAME] [ARG1]", "Generate a resource with 1 arguments i.e mynatra resource comment body"
-    # def resource_1(name, arg1)
-    #   Mynatra::Generators::Resource.start([ name, arg1 ])
-    # end 
-
   end
 end

@@ -1,8 +1,11 @@
 require 'sinatra'
 
 class BaseController < Sinatra::Base
+  set :views, File.dirname('.') + '/views'
+  set :public_folder, File.dirname('.') + '/public'
+
   get '/' do 
-    "<h1><%= name %> Index...</h1>"
+    erb :"getting_started"
   end
 
   get '/create' do 

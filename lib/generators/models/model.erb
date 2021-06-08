@@ -1,26 +1,27 @@
-class <%= name.capitalize %>
-  attr_accessor :id
+class <%= @name_singular.capitalize %>
+  attr_accessor :id, :<%= @attributes[0] %>, :<%= @attributes[1] %> #The templating in generator will need to change accordingly for setters and getters
 
-  @@<%= name.capitalize.concat('s') %> = []
+  @@<%= @name_plural.capitalize %> = []
+  @@count = 0
 
   def delete
-    @@<%= name.capitalize.concat('s') %>.each_with_index do |<%= name %>, index|
-      if self.id == <%= name %>.id
-        @@<%= name.capitalize.concat('s') %>.delete_at(index)
+    @@<%= @name_plural.capitalize %>.each_with_index do |<%= @name_singular%>, index|
+      if self.id == <%= @name_singular%>.id
+        @@<%= @name_plural.capitalize %>.delete_at(index)
       end
     end
   end
 
   def self.create(id)
-    <%= name %> = <%= name.capitalize %>.new
-    <%= name %>.id = id
-    @@<%= name.capitalize.concat('s') %> << <%= name %>
+    <%= @name_singular%> = <%= name.capitalize %>.new
+    <%= @name_singular%>.id = id
+    @@<%= @name_plural.capitalize %> << <%= @name_singular%>
   end
 
   def self.find_by_id(id)
-    @@<%= name.capitalize.concat('s') %>.each do |<%= name %>|
-      if <%= name %>.id == id
-        return <%= name %>
+    @@<%= @name_plural.capitalize %>.each do |<%= @name_singular%>|
+      if <%= @name_singular%>.id == id
+        return <%= @name_singular%>
       end
     end
   end
@@ -28,26 +29,30 @@ class <%= name.capitalize %>
   def save
     if self.id.nil?
       self.id = new_id
-      @@<%= name.capitalize.concat('s') %>.push(self)
+      @@<%= @name_plural.capitalize %>.push(self)
     else
       self.id = self.id.to_i
-      @@<%= name.capitalize.concat('s') %>.each_with_index do |post, index|
-        if self.id == <%= name %>.id
-          @@<%= name.capitalize.concat('s') %>[index] = self
+      @@<%= @name_plural.capitalize %>.each_with_index do |<%= @name_singular %>, index|
+        if self.id == <%= @name_singular %>.id
+          @@<%= @name_plural.capitalize %>[index] = self
         end
       end
     end
   end
 
   def self.create_many
-    @@<%= name.capitalize.concat('s') %> = (1..25).map do |num| 
-      <%= name %> = <%= name.capitalize %>.new
-      <%= name %>.id = "<%= name %>#{num}"
-      <%= name %>
+    @@<%= @name_plural.capitalize %> = (1..25).map do |num| 
+      <%= @name_singular%> = <%= name.capitalize %>.new
+      <%= @name_singular%>.id = "<%= @name_singular%>#{num}"
+      <%= @name_singular%>
     end
   end
 
   def self.all
-    @@<%= name.capitalize.concat('s') %>
+    @@<%= @name_plural.capitalize %>
+  end
+
+  def new_id
+    @@count += 1
   end
 end

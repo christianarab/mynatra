@@ -1,11 +1,15 @@
 Feature: Generators for Mynatra 
 
     Scenario: Mynatra resource [RESOURCE_NAME] [DIRECTORY DESTINATION]
-        When I run `mynatra resource user destination`
+        When I run `mynatra resource post title body`
         Then the following files should exist:
-        | destination/models/user.rb |
-        | destination/public/styles/main.css |
-        | destination/app.rb |
+            | models/post.rb |
+            | public/styles/main.css |
+            | app.rb |
+        Then the file 'filename' contains:
+            """
+            block here of text
+            """
 
     Scenario: Mynatra resource [RESOURCE_NAME] [DIRECTORY DESTINATION]
         When I run `mynatra resource blog blogapp`
