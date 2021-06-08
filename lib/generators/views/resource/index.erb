@@ -1,8 +1,10 @@
-* insert header
-<h1>Posts</h1>
-<ul>
-    <p> # This feature will iteate over the <%= @name_singular %> saved objects
-    <p> # ISSUE: generating an ERB with yet to be created instance variable names
-    <p> # TEMP FIX: Please see index_note.txt
+<h1><%= @name_plural.capitalize %></h1>
+    <%% @<%= @name_plural %>.each do |<%= @name_singular %>| %>
+        <li><a href="/<%= @name_plural %>/<%%= <%= @name_singular %>.id %>"><%%= <%= @name_singular %>.id %></a></li>
+        <ul>
+        <% @attributes.each do |attribute| %>
+            <li><%= attribute %>: <%%= <%= @name_singular %>.<%= attribute %> %></li>
+        <% end %>
+        </ul>
+    <%% end %>
 </ul>
-* insert footer
