@@ -1,44 +1,56 @@
-require './models/<%= name %>'
+require './models/<%= @name_singular %>'
 
-class <%= name.capitalize.concat('s') %>Controller < Sinatra::Base
-  
-  get '/<%= name.concat('s') %>/new' do
-    @<%= name %> = <%= name.capitalize.concat('s') %>.new
-    erb :"<%= name.concat('s') %>/new"
+class <%= @name_singular.capitalize %>Controller < Sinatra::Base
+  set :views, File.dirname('.') + '/views'
+  set :public_folder, File.dirname('.') + '/public'
+
+  # Create new (GET)
+  get '/<%= @name_plural %>/new' do
+    @<%= @name_singular %> = <%= @name_singular.capitalize %>.new
+    erb :"<%= @name_plural %>/new"
   end
 
-  <%= name %> '/<%= name.concat('s') %>/create' do
-    <%= name %> = <%= name.capitalize.concat('s') %>.new
-    <%= name %>.<%= arg1 %>, <%= name %>.<%= arg2 %> = params[:<%= arg1 %>], params[:<%= arg2 %>]
-    <%= name %>.save
-    redirect :"<%= name.concat('s') %>"
+  # Create new (POST)
+  post '/<%= @name_plural %>/create' do
+    <%= @name_singular %> = <%= @name_singular.capitalize %>.new
+  <% @attributes.each do |attribute| %>
+    <%= @name_singular %>.<%= attribute %> = params[:<%= attribute %>]
+  <% end-%>
+    <%= @name_singular %>.save
+    redirect :"<%= @name_plural %>"
   end
 
-  <%= name %> '/<%= name.concat('s') %>/update/:id' do
-    <%= name %> = <%= name.capitalize.concat('s') %>.new
-    <%= name %>.id, <%= name %>.<%= arg1 %>, <%= name %>.<%= arg2 %> = params[:id].to_i, params[:<%= arg1 %>], params[:<%= arg2 %>]
-    <%= name %>.save
-    redirect :"<%= name.concat('s') %>/#{<%= name %>.id}"
+  # Update record (POST)
+  post '/<%= @name_plural %>/update/:id' do
+    <%= @name_singular %> = <%= @name_singular.capitalize %>.new
+    <%= @name_singular %>.id = params[:id].to_i
+  <% @attributes.each do |attribute| %>
+    <%= @name_singular %>.<%= attribute %> = params[:<%= attribute %>]
+  <% end-%>
+    <%= @name_singular %>.save
+    redirect :"<%= @name_plural %>/#{<%= @name_singular %>.id}"
   end
 
-  get '/<%= name.concat('s') %>/:id' do
-    @<%= name %> = <%= name.capitalize.concat('s') %>.find(params[:id].to_i)
-    erb :"<%= name.concat('s') %>/edit"
+  # Find record (GET)
+  get '/<%= @name_plural %>/:id' do
+    @<%= @name_singular %> = <%= @name_singular.capitalize %>.find_by_id(params[:id].to_i)
+    erb :"<%= @name_plural %>/edit"
   end
 
-  <%= name %> '/<%= name.concat('s') %>/delete/:id' do
-    @<%= name %> = <%= name.capitalize.concat('s') %>.find(params[:id].to_i)
+  # Delete record (POST)
+  post '/<%= @name_plural %>/delete/:id' do
+    @<%= name %> = <%= @name_singular.capitalize %>.find_by_id(params[:id].to_i)
     @<%= name %>.delete
-    redirect :<%= name.concat('s') %>
+    redirect :<%= @name_plural %>
   end
 
-  # list all <%= name.concat('s') %>
-  get '/<%= name.concat('s') %>' do
-    @<%= name.concat('s') %> = <%= name.capitalize.concat('s') %>.all
-    erb :"<%= name.concat('s') %>/index"
+  # Index records (GET)
+  get '/<%= @name_plural %>' do
+    @<%= @name_plural %> = <%= @name_singular.capitalize %>.all
+    erb :"<%= @name_plural %>/index"
   end
 
-  get '/<%= name.concat('s') %>/index' do
-    redirect :<%= name.concat('s') %>
+  get '/<%= @name_plural %>/index' do
+    redirect :<%= @name_plural %>
   end
 end

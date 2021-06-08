@@ -1,12 +1,16 @@
-<%= erb :header %>
-<link rel="stylesheet" href="/styles/main.css">
-<h1>Edit</h1>
-<form method="POST" action="/<%= name.concat('s') %>/update/<%= @name.id %>">
-  <p>Title:</p>
-    <p>Create title</p>
-  <p>Body:</p>
-  <textarea name="body" type="text"><%= @name.body %></textarea><br>
-  <input type="submit">
-</form>
-<br>
-<%= erb :footer %>
+* insert header
+<div>
+<%=# ISSUE: How do I TEMPLATE THIS FOR MYNATRA IE /posts/update/<%= @post.id >  %>
+  <form method="POST" action="/<%= @name_plural %>/update/<%= @name_singular %>.id"> 
+      <% @attributes.each do |attribute| %>
+      <p> <%= attribute %>
+      <input name="<%= attribute %>" value="<%= attribute %>"><br>
+      <input type="submit">
+      <% end-%>
+  </form>
+
+  <form method="POST" action="/<%= @name_plural %>/delete/<%= @name_singular %>.id">
+      <input type="submit" value="delete">
+  </form>
+</div>
+* insert footer
