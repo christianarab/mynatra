@@ -1,0 +1,12 @@
+<div>
+  <form method="POST" action='/menus/update/<%= @menu.id %>'> 
+      
+      <p> <%= @menu.meal %>
+      <input name="meal" value="<%= @menu.meal %>"><br>
+      <input type="submit">
+        </form>
+
+  <form method="POST" action="/menus/delete/<%= @menu.id %>">
+      <input type="submit" value="delete">
+  </form>
+</div>

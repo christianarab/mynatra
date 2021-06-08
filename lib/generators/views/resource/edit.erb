@@ -1,16 +1,13 @@
-* insert header
 <div>
-<%=# ISSUE: How do I TEMPLATE THIS FOR MYNATRA IE /posts/update/<%= @post.id >  %>
-  <form method="POST" action="/<%= @name_plural %>/update/<%= @name_singular %>.id"> 
+  <form method="POST" action='/<%= @name_plural %>/update/<%%= @<%= @name_singular %>.id %>'> 
       <% @attributes.each do |attribute| %>
-      <p> <%= attribute %>
-      <input name="<%= attribute %>" value="<%= attribute %>"><br>
+      <p> <%%= @<%= @name_singular %>.<%= attribute %> %>
+      <input name="<%= attribute %>" value="<%%= @<%= @name_singular %>.<%= attribute %> %>"><br>
       <input type="submit">
       <% end-%>
   </form>
 
-  <form method="POST" action="/<%= @name_plural %>/delete/<%= @name_singular %>.id">
+  <form method="POST" action="/<%= @name_plural %>/delete/<%%= @<%= @name_singular %>.id %>">
       <input type="submit" value="delete">
   </form>
 </div>
-* insert footer

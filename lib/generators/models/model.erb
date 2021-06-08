@@ -1,5 +1,8 @@
 class <%= @name_singular.capitalize %>
-  attr_accessor :id, :<%= @attributes[0] %>, :<%= @attributes[1] %> #The templating in generator will need to change accordingly for setters and getters
+  attr_accessor :id
+<% @attributes.each do |attribute| %>
+    attr_accessor :<%= attribute %>
+<% end -%>
 
   @@<%= @name_plural.capitalize %> = []
   @@count = 0
