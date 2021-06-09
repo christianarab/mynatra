@@ -1,0 +1,56 @@
+require './models/<%= @name_singular %>'
+
+class <%= @name_singular.capitalize %>Controller < Sinatra::Base
+  set :views, File.dirname('.') + '/views'
+  set :public_folder, File.dirname('.') + '/public'
+
+  # Create new (GET)
+  get '/<%= @name_plural %>/new' do
+    @<%= @name_singular %> = <%= @name_singular.capitalize %>.new
+    erb :"<%= @name_plural %>/new"
+  end
+
+  # Create new (POST)
+  post '/<%= @name_plural %>/create' do
+    <%= @name_singular %> = <%= @name_singular.capitalize %>.new
+  <% @attributes.each do |attribute| %>
+    <%= @name_singular %>.<%= attribute %> = params[:<%= attribute %>]
+  <% end-%>
+    <%= @name_singular %>.save
+    redirect :"<%= @name_plural %>"
+  end
+
+  # Update record (POST)
+  post '/<%= @name_plural %>/update/:id' do
+    <%= @name_singular %> = <%= @name_singular.capitalize %>.new
+    <%= @name_singular %>.id = params[:id].to_i
+  <% @attributes.each do |attribute| %>
+    <%= @name_singular %>.<%= attribute %> = params[:<%= attribute %>]
+  <% end-%>
+    <%= @name_singular %>.save
+    redirect :"<%= @name_plural %>/#{<%= @name_singular %>.id}"
+  end
+
+  # Find record (GET)
+  get '/<%= @name_plural %>/:id' do
+    @<%= @name_singular %> = <%= @name_singular.capitalize %>.find_by_id(params[:id].to_i)
+    erb :"<%= @name_plural %>/edit"
+  end
+
+  # Delete record (POST)
+  post '/<%= @name_plural %>/delete/:id' do
+    @<%= name %> = <%= @name_singular.capitalize %>.find_by_id(params[:id].to_i)
+    @<%= name %>.delete
+    redirect :<%= @name_plural %>
+  end
+
+  # Index records (GET)
+  get '/<%= @name_plural %>' do
+    @<%= @name_plural %> = <%= @name_singular.capitalize %>.all
+    erb :"<%= @name_plural %>/index"
+  end
+
+  get '/<%= @name_plural %>/index' do
+    redirect :<%= @name_plural %>
+  end
+end

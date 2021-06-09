@@ -1,0 +1,10 @@
+<div>
+  <h1>New <%= @name_singular.capitalize %></h1>
+  <form method='POST' action='/<%= @name_plural %>/create'>
+  <% @attributes.each do |attribute| %>
+      <p><%= attribute %>:
+        <input name='<%= attribute %>'><br>
+  <% end -%>
+        <input type='submit'>
+    </form>
+</div>
