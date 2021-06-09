@@ -1,0 +1,13 @@
+<div>
+  <form method="POST" action='/<%= @name_plural %>/update/<%%= @<%= @name_singular %>.id %>'> 
+      <% @attributes.each do |attribute| %>
+      <p> <%%= @<%= @name_singular %>.<%= attribute %> %>
+      <input name="<%= attribute %>" value="<%%= @<%= @name_singular %>.<%= attribute %> %>"><br>
+      <input type="submit">
+      <% end-%>
+  </form>
+
+  <form method="POST" action="/<%= @name_plural %>/delete/<%%= @<%= @name_singular %>.id %>">
+      <input type="submit" value="delete">
+  </form>
+</div>

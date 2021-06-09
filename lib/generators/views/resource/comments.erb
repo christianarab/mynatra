@@ -1,0 +1,27 @@
+<h1>Comments</h1>
+
+<% @comments.each do |comment| %>
+  <table style="width:100%">
+    <tr>
+      <th>Author</th>
+      <th>Comment</th>
+      <th>Upvotes</th>
+      <th>Downvotes</th>
+    </tr>
+    <tr>
+      <td><%= comment.author %></td>
+      <td><%= comment.body %></td>
+      <td><a href='/post/<%= @post.id %>/comments/<%= comment.gen_id %>/upvote'><%= comment.upvotes %></a></td>
+      <td><a href='/post/<%= @post.id %>/comments/<%= comment.gen_id %>/downvote'><%= comment.downvotes %></a></td>
+    </tr>
+  </table>
+<% end %>
+
+<h1>Add Comment</h1>
+<form method="POST" action="/posts/<%= @post.id %>/comments/new">
+  <p>Author:</p>
+  <input name="author" value="enter your name"><br>
+  <p>Body:</p>
+  <textarea name="body" type="text">enter comment</textarea><br>
+  <input type="submit">
+</form>
