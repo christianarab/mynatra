@@ -1,19 +1,15 @@
 Feature: Generators for Mynatra 
 
-    Scenario: Mynatra resource [RESOURCE_NAME] [DIRECTORY DESTINATION]
-        When I run `mynatra resource post title body`
+    Scenario: Mynatra new [PROJECT]
+        When I run `mynatra new testblog`
         Then the following files should exist:
-            | models/post.rb |
-            | public/styles/main.css |
-            | app.rb |
-        Then the file 'filename' contains:
-            """
-            block here of text
-            """
+            | testblog/app.rb |
+            | testblog/public/styles/main.css |
+            | testblog/controllers/base_controller.rb |
 
-    Scenario: Mynatra resource [RESOURCE_NAME] [DIRECTORY DESTINATION]
-        When I run `mynatra resource blog blogapp`
+    Scenario: Mynatra resource [RESOURCE_NAME] [*ARGUMENTS]
+        When I run `mynatra resource post title body comment`
         Then the following files should exist:
-        | blogapp/models/blog.rb |
-        | blogapp/public/styles/main.css |
-        | blogapp/app.rb |
+            | views/posts/edit.erb |
+            | controllers/posts_controller.rb |
+            | models/posts.rb |
