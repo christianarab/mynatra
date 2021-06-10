@@ -35,6 +35,7 @@ module Mynatra
         @name_singular = name.singularize
         @name_plural = name.pluralize
         @attributes = attributes
+        template("views/header.erb", "views/header.erb")
         template("views/resource/edit.erb", "views/#{@name_plural}/edit.erb")
         template("views/resource/index.erb", "views/#{@name_plural}/index.erb")
         template("views/resource/new.erb", "views/#{@name_plural}/new.erb")

@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-
 <link rel="stylesheet" href="/styles/main.css">
 
-<div>
-    <p> This is the header for <%= @name_singular %>
-</div>
-
-
-
+<nav>
+  <ul>
+    <li>
+      <a href="/">Home</a>
+    </li>
+    <li>
+      <a href="/<%= @name_plural %>/new">Create new <%= @name_singular %></a>
+    </li>
+    <li>
+       <a href="/<%= @name_plural %>">List & Edit <%= @name_plural %></a>
+    </li>
+  </ul>
+</nav>

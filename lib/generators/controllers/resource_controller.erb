@@ -49,8 +49,4 @@ class <%= @name_singular.capitalize %>Controller < Sinatra::Base
     @<%= @name_plural %> = <%= @name_singular.capitalize %>.all
     erb :"<%= @name_plural %>/index"
   end
-
-  get '/<%= @name_plural %>/index' do
-    redirect :<%= @name_plural %>
-  end
 end

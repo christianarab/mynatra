@@ -1,3 +1,5 @@
+ <%%= erb :header %>
+
 <div>
   <h1>New <%= @name_singular.capitalize %></h1>
   <form method='POST' action='/<%= @name_plural %>/create'>
@@ -8,3 +10,5 @@
         <input type='submit'>
     </form>
 </div>
+
+ <%%= erb :footer %>
