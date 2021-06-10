@@ -1,3 +1,5 @@
+ <%%= erb :header %>
+ 
 <div>
   <form method="POST" action='/<%= @name_plural %>/update/<%%= @<%= @name_singular %>.id %>'> 
       <% @attributes.each do |attribute| %>
@@ -11,3 +13,5 @@
       <input type="submit" value="delete">
   </form>
 </div>
+
+ <%%= erb :footer %>
