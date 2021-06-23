@@ -16,9 +16,6 @@ module Mynatra
         @name_singular = name.singularize
         @name_plural = name.pluralize
         @attributes = attributes
-        puts "This is what @name_singular looks like: #{@name_singular}"
-        puts "This is what @name_plural looks like: #{@name_plural}"
-        puts "This is what @attributes looks like: #{@attributes}"
         template("models/model.erb", "models/#{name}.rb")
       end
 
