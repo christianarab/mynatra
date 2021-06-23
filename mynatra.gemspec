@@ -8,15 +8,15 @@ Gem::Specification.new do |spec|
   spec.authors       = ["christian"]
   spec.email         = ["rewindforward@gmail.com"]
 
-  spec.summary       = "The fast and quick framework."
-  spec.homepage      = "https://github.com/christianarab"
+  spec.summary       = "Mynatra: the quick, and simple application framework."
+  spec.homepage      = "https://github.com/christianarab/mynatra"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
 
   # spec.metadata["allowed_push_host"] = "sss: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/compsciacademy/fulltime-program-2021-Q2/tree/main/Week06/Day29/foodie/"
-  spec.metadata["changelog_uri"] = "https://github.com/compsciacademy/fulltime-program-2021-Q2/tree/main/Week06/Day29/foodie/changelog.md"
+  spec.metadata["source_code_uri"] = spec.homepage
+  spec.metadata["changelog_uri"] = "https://github.com/christianarab/mynatra/commits/main"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

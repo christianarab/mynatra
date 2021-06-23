@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mynatra (0.1.0)
+    mynatra (0.1.01)
       activesupport
       thor
 
