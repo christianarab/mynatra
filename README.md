@@ -1,4 +1,13 @@
+        
+                     _|_          
+.--.--. .  ..--. .-.  |  .--..-.  
+|  |  | |  ||  |(   ) |  |  (   ) 
+'  '  `-`--|'  `-`-'`-`-''   `-'`-
+           ;                      
+        `-'                       
+
 > **mynatra** : the quick, and simple application framework. 
+
 By Christian Arab, CompSci Academy Q2 Student
 
 mynatra is a quick, and simple application framework. mynatra's simple command line interface allows easy creation of Ruby resource models with attributes, views, and controllers. 
