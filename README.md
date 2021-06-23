@@ -1,11 +1,11 @@
-        
+```        
                      _|_          
 .--.--. .  ..--. .-.  |  .--..-.  
 |  |  | |  ||  |(   ) |  |  (   ) 
 '  '  `-`--|'  `-`-'`-`-''   `-'`-
            ;                      
         `-'                       
-
+```
 > **mynatra** : the quick, and simple application framework. 
 
 By Christian Arab, CompSci Academy Q2 Student
