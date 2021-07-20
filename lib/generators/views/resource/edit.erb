@@ -3,7 +3,7 @@
 <div>
   <form method="POST" action='/<%= @name_plural %>/update/<%%= @<%= @name_singular %>.id %>'> 
       <% @attributes.each do |attribute| %>
-      <p> <%= attribute %> 
+      <p> <%= attribute.capitalize %> </p> 
       <input name="<%= attribute %>" value="<%%= @<%= @name_singular %>.<%= attribute %> %>"><br>
       <% end-%>
       <input type="submit">
