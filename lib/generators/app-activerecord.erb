@@ -1,0 +1,10 @@
+# app.rb
+require "sinatra"
+require "sinatra/activerecord"
+
+# require and use controllers from within the `./controller` directory
+controller_paths = Dir["./controllers/*.rb"].each { |file| require_relative file }
+controllers = controller_paths.map { |controller_path| controller_path[/controllers\/(.*?)_controller/m, 1] }
+controllers.each { |controller| use Object.const_get("#{controller.capitalize}Controller") }
+
+set :database, {adapter: "sqlite3", database: "foo.sqlite3"}
