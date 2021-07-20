@@ -9,7 +9,7 @@ module Mynatra
       # Takes in dir, name arguments
       argument :name, type: :string
 
-      # Generates empty directory
+      # Generates directory
       def create_dir
         empty_directory(name)
       end
