@@ -1,5 +1,4 @@
 #!/user/bin/env ruby 
-puts "I am here, with my exe/mynatra script!"
 require "mynatra/cli"
 
 Mynatra::CLI.start
