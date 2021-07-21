@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["christian"]
   spec.email         = ["rewindforward@gmail.com"]
 
-  spec.summary       = "Mynatra: the quick, and simple application framework."
+  spec.summary       = "mynatra: the easy to use framework."
   spec.homepage      = "https://github.com/christianarab/mynatra"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
 
@@ -29,10 +29,10 @@ Gem::Specification.new do |spec|
   
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
-  spec.add_dependency "sinatra-activerecord"
+  spec.add_dependency "sinatra"
   spec.add_dependency "thor"
-  spec.add_dependency "activerecord"
-
+  spec.add_dependency "activesupport"
+  
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "cucumber"
   spec.add_development_dependency "aruba"
