@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     mynatra (1.0.0)
-      activerecord
-      sinatra-activerecord
+      activesupport
+      sinatra
       thor
 
 GEM
@@ -129,4 +129,4 @@ DEPENDENCIES
   sqlite3
 
 BUNDLED WITH
-   2.2.22
+   2.2.24

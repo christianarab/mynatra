@@ -33,10 +33,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "thor"
   spec.add_dependency "activesupport"
   
-  spec.add_development_dependency "rspec"
-  spec.add_development_dependency "cucumber"
-  spec.add_development_dependency "aruba"
-
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html
 end

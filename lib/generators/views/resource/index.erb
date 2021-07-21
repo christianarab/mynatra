@@ -1,14 +1,13 @@
- <%%= erb :header %>
+<%%= erb :header %>
 
-<h1><%= @name_plural.capitalize %></h1>
+<h1>Index of <%= @name_plural.capitalize %></h1>
     <%% @<%= @name_plural %>.each do |<%= @name_singular %>| %>
-        <li><a href="/<%= @name_plural %>/<%%= <%= @name_singular %>.id %>"><%%= <%= @name_singular %>.id %></a></li>
+        <h3><a href="/<%= @name_plural %>/<%%= <%= @name_singular %>.id %>"><%%= <%= @name_singular %>.id %></a></h3>
         <ul>
         <% @attributes.each do |attribute| %>
             <li><%= attribute %>: <%%= <%= @name_singular %>.<%= attribute %> %></li>
         <% end %>
         </ul>
-    <%% end %>
-</ul>
+<%% end %>
 
- <%%= erb :footer %>
+<%%= erb :footer %>

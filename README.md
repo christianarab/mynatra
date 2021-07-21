@@ -15,7 +15,7 @@ By Christian Arab, CompSci Academy Q2 Student
 mynatra's simple command line interface allows easy creation of Ruby resource models with attributes, views, and controllers. 
 mynatra can be used as a simple, site generator perfect for small personal projects and tasks. 
 
-mynatra's dependancies include:
+mynatra's dependencies include:
 
 ```ruby
 gem "activesupport"
