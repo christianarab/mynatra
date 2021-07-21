@@ -5,7 +5,7 @@
 '  '  `-`--|'  `-`-'`-`-''   `-'`-
            ;                      
         `-'       
-the quick, and simple sinatra framework.                 
+the easy to use framework.              
 ```
 
 By Christian Arab, CompSci Academy Q2 Student
@@ -18,12 +18,9 @@ mynatra can be used as a simple, site generator perfect for small personal proje
 mynatra's dependancies include:
 
 ```ruby
-gem "sinatra"
 gem "activesupport"
+gem "sinatra"
 gem "thor"
-gem "sinatra-activerecord"
-gem "sqlite3"
-gem "rake"
 ```
 
 ## Creating a Blog with Mynatra
