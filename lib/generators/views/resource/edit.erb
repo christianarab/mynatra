@@ -1,7 +1,7 @@
- <%%= erb :header %>
+<%%= erb :header %>
  
 <div>
-  <form method="POST" action='/<%= @name_plural %>/update/<%%= @<%= @name_singular %>.id %>'> 
+  <form method='POST' action='/<%= @name_plural %>/update/<%%= @<%= @name_singular %>.id %>'> 
       <% @attributes.each do |attribute| %>
       <p> <%= attribute.capitalize %> </p> 
       <input name="<%= attribute %>" value="<%%= @<%= @name_singular %>.<%= attribute %> %>"><br>
@@ -9,9 +9,9 @@
       <input type="submit">
   </form>
 
-  <form method="POST" action="/<%= @name_plural %>/delete/<%%= @<%= @name_singular %>.id %>">
+  <form method='POST' action='/<%= @name_plural %>/delete/<%%= @<%= @name_singular %>.id %>'>
       <input type="submit" value="delete">
   </form>
 </div>
 
- <%%= erb :footer %>
+<%%= erb :footer %>
