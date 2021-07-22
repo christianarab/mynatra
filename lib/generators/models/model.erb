@@ -1,30 +1,30 @@
 class <%= @name_singular.capitalize %>
   attr_accessor :id
-<% @attributes.each do |attribute| %>
-    attr_accessor :<%= attribute %>
+<% @attributes.each do |attribute| -%>
+  attr_accessor :<%= attribute %>
 <% end -%>
 
-  @@<%= @name_plural.capitalize %> = []
+  @@<%= @name_plural %> = []
   @@count = 0
 
   def delete
-    @@<%= @name_plural.capitalize %>.each_with_index do |<%= @name_singular%>, index|
-      if self.id == <%= @name_singular%>.id
-        @@<%= @name_plural.capitalize %>.delete_at(index)
+    @@<%= @name_plural %>.each_with_index do |<%= @name_singular %>, index|
+      if self.id == <%= @name_singular %>.id
+        @@<%= @name_plural %>.delete_at(index)
       end
     end
   end
 
   def self.create(id)
-    <%= @name_singular%> = <%= name.capitalize %>.new
-    <%= @name_singular%>.id = id
-    @@<%= @name_plural.capitalize %> << <%= @name_singular%>
+    <%= @name_singular %> = <%= name.capitalize %>.new
+    <%= @name_singular %>.id = id
+    @@<%= @name_plural %> << <%= @name_singular %>
   end
 
   def self.find_by_id(id)
-    @@<%= @name_plural.capitalize %>.each do |<%= @name_singular%>|
-      if <%= @name_singular%>.id == id
-        return <%= @name_singular%>
+    @@<%= @name_plural %>.each do |<%= @name_singular %>|
+      if <%= @name_singular %>.id == id
+        return <%= @name_singular %>
       end
     end
   end
@@ -32,27 +32,27 @@ class <%= @name_singular.capitalize %>
   def save
     if self.id.nil?
       self.id = new_id
-      @@<%= @name_plural.capitalize %>.push(self)
+      @@<%= @name_plural %>.push(self)
     else
       self.id = self.id.to_i
-      @@<%= @name_plural.capitalize %>.each_with_index do |<%= @name_singular %>, index|
+      @@<%= @name_plural %>.each_with_index do |<%= @name_singular %>, index|
         if self.id == <%= @name_singular %>.id
-          @@<%= @name_plural.capitalize %>[index] = self
+          @@<%= @name_plural %>[index] = self
         end
       end
     end
   end
 
   def self.create_many
-    @@<%= @name_plural.capitalize %> = (1..25).map do |num| 
-      <%= @name_singular%> = <%= name.capitalize %>.new
-      <%= @name_singular%>.id = "<%= @name_singular%>#{num}"
-      <%= @name_singular%>
+    @@<%= @name_plural %> = (1..25).map do |num| 
+      <%= @name_singular %> = <%= name.capitalize %>.new
+      <%= @name_singular %>.id = "<%= @name_singular %>#{num}"
+      <%= @name_singular %>
     end
   end
 
   def self.all
-    @@<%= @name_plural.capitalize %>
+    @@<%= @name_plural %>
   end
 
   def new_id
