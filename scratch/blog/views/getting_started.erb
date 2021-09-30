@@ -1,0 +1,135 @@
+<%= erb :header %>
+ 
+<link rel="stylesheet" href="/styles/main.css">
+
+<section>
+    <h1></h1>
+<pre><code>                     _|<span class="hljs-string">_          
+.--.--. .  ..--. .-.  </span>|<span class="hljs-string">  .--..-.  
+</span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string"> </span>|<span class="hljs-string">  </span>||<span class="hljs-string">  </span>|<span class="hljs-string">(   ) </span>|<span class="hljs-string">  </span>|<span class="hljs-string">  (   ) 
+'  '  `-`--</span>|<span class="hljs-string">'  `-`-'`-`-''   `-'`-
+           ;                      
+        `-'       
+the easy to use framework.     </span>
+</code></pre><p>By Christian Arab, CompSci Academy Q2 Student</p>
+<h2 id="what-is-mynatra-">What is mynatra?</h2>
+<p>mynatra&#39;s simple command line interface allows easy creation of Ruby resource models with attributes, views, and controllers. 
+mynatra can be used as a simple, site generator perfect for small personal projects and tasks. </p>
+<p>mynatra&#39;s dependancies include:</p>
+<pre><code class="lang-ruby"><span class="hljs-attribute">gem</span> <span class="hljs-string">"sinatra"</span>
+gem <span class="hljs-string">"thor"</span>
+</code></pre>
+<h2 id="creating-a-blog-with-mynatra">Creating a Blog with Mynatra</h2>
+<h3 id="1-create-a-new-project">1. Create a new project</h3>
+<p>Run the following line to generate a mynatra project:</p>
+<pre><code class="lang-bash">mynatra <span class="hljs-keyword">new</span> blog
+</code></pre>
+<p>This will establish a new mynatra project in teh blog directory with the following structure:</p>
+<pre><code class="lang-bash"># <span class="hljs-selector-tag">File</span> <span class="hljs-selector-tag">structure</span>
+
+<span class="hljs-selector-tag">blog</span>
+├── <span class="hljs-selector-tag">app</span><span class="hljs-selector-class">.rb</span>
+├── <span class="hljs-selector-tag">controllers</span>
+│   └── <span class="hljs-selector-tag">base_controller</span><span class="hljs-selector-class">.rb</span>
+├── <span class="hljs-selector-tag">public</span>
+│   ├── <span class="hljs-selector-tag">scripts</span>
+│   │   └── <span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.js</span>
+│   └── <span class="hljs-selector-tag">styles</span>
+│       └── <span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.css</span>
+└── <span class="hljs-selector-tag">views</span>
+    ├── <span class="hljs-selector-tag">footer</span><span class="hljs-selector-class">.erb</span>
+    ├── <span class="hljs-selector-tag">getting_started</span><span class="hljs-selector-class">.erb</span>
+    └── <span class="hljs-selector-tag">header</span><span class="hljs-selector-class">.erb</span>
+</code></pre>
+<p>Start your Sinatra-based mynatra project by switching to the folder and run the following  </p>
+<pre><code class="lang-bash"><span class="hljs-variable">$ </span>ruby app.rb
+</code></pre>
+<h3 id="2-add-blog-resources-to-your-project">2. Add blog resources to your project</h3>
+<p>To add resource models to your mynatra project. 
+Run the following on the working directory:</p>
+<pre><code class="lang-bash">$ mynatra resource post title <span class="hljs-keyword">body</span>
+</code></pre>
+<p>This line tells mynatra to generate models, controllers, and basic views for the resource of <code>post</code> with the attributes of title and body.</p>
+<pre><code class="lang-bash"># <span class="hljs-selector-tag">File</span> <span class="hljs-selector-tag">structure</span>
+
+<span class="hljs-selector-tag">blog</span>
+├── <span class="hljs-selector-tag">app</span><span class="hljs-selector-class">.rb</span>
+├── <span class="hljs-selector-tag">controllers</span>
+│   ├── <span class="hljs-selector-tag">base_controller</span><span class="hljs-selector-class">.rb</span>
+│   └── <span class="hljs-selector-tag">post_controller</span><span class="hljs-selector-class">.rb</span>
+├── <span class="hljs-selector-tag">models</span>
+│   └── <span class="hljs-selector-tag">post</span><span class="hljs-selector-class">.rb</span> 
+├── <span class="hljs-selector-tag">public</span>
+│   ├── <span class="hljs-selector-tag">scripts</span>
+│   │   └── <span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.js</span>
+│   └── <span class="hljs-selector-tag">styles</span>
+│       └── <span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.css</span>
+└── <span class="hljs-selector-tag">views</span>
+    ├── <span class="hljs-selector-tag">footer</span><span class="hljs-selector-class">.erb</span>
+    ├── <span class="hljs-selector-tag">getting_started</span><span class="hljs-selector-class">.erb</span>
+    ├── <span class="hljs-selector-tag">header</span><span class="hljs-selector-class">.erb</span>
+    └── <span class="hljs-selector-tag">posts</span>
+        ├── <span class="hljs-selector-tag">edit</span><span class="hljs-selector-class">.erb</span>
+        ├── <span class="hljs-selector-tag">index</span><span class="hljs-selector-class">.erb</span>
+        └── <span class="hljs-selector-tag">new</span><span class="hljs-selector-class">.erb</span>
+</code></pre>
+<pre><code class="lang-ruby"><span class="hljs-comment"># blog/models/post.rb</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Post</span></span>
+  <span class="hljs-keyword">attr_accessor</span> <span class="hljs-symbol">:id</span>
+  <span class="hljs-keyword">attr_accessor</span> <span class="hljs-symbol">:title</span>
+  <span class="hljs-keyword">attr_accessor</span> <span class="hljs-symbol">:body</span>
+
+  @@Posts = []
+  @@count = <span class="hljs-number">0</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">delete</span></span>
+    @@Posts.each_with_index <span class="hljs-keyword">do</span> <span class="hljs-params">|post, index|</span>
+      <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.id == post.id
+        @@Posts.delete_at(index)
+      <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">self</span>.<span class="hljs-title">create</span><span class="hljs-params">(id)</span></span>
+    post = Post.new
+    post.id = id
+    @@Posts &lt;&lt; post
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">self</span>.<span class="hljs-title">find_by_id</span><span class="hljs-params">(id)</span></span>
+    @@Posts.each <span class="hljs-keyword">do</span> <span class="hljs-params">|post|</span>
+      <span class="hljs-keyword">if</span> post.id == id
+        <span class="hljs-keyword">return</span> post
+      <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+
+  ...
+</code></pre>
+<pre><code class="lang-html"># blog/views/posts/new.erb 
+  ...
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>New Post<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">'POST'</span> <span class="hljs-attr">action</span>=<span class="hljs-string">'/posts/create'</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>title:
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'title'</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>body:
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'body'</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'submit'</span>&gt;</span>
+  ...
+</code></pre>
+<h3 id="3-create-an-instance-of-post-">3. Create an instance of &#39;post&#39;</h3>
+<p>Congratulations! At this point you are able to instantiate a blog post. First make sure your Sinatra server is up and running by using <code>ruby app.rb</code> in working directory.</p>
+<p>Next navigate to the &#39;new&#39; page/view of your post resource. You should be able to create a new instance of post with the input text for &#39;title&#39; and &#39;body&#39;.</p>
+<p>The &#39;index&#39; view will allow you to display all instances and select an individual point for editing.</p>
+<p>The &#39;edit&#39; view allows you to manipulate the values, or delete a post.</p>
+<h2 id="additional-information">Additional information</h2>
+<h3 id="contributing">Contributing</h3>
+<p>Mynatra thrives off bug reports and pull requests.
+Please see <a href="https://github.com/christianarab/mynatra">https://github.com/christianarab/mynatra</a>.</p>
+
+
+ <%= erb :footer %>
