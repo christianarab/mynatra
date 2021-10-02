@@ -4,9 +4,9 @@
 |  |  | |  ||  |(   ) |  |  (   ) 
 '  '  `-`--|'  `-`-'`-`-''   `-'`-
            ;                      
-        `-'       
-the easy to use framework.              
+        `-'                
 ```
+[![Build Status](https://app.travis-ci.com/christianarab/mynatra.svg?branch=main)](https://app.travis-ci.com/christianarab/mynatra)
 
 By Christian Arab, CompSci Academy Q2 Student
 
