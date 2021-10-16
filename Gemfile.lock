@@ -16,6 +16,7 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     concurrent-ruby (1.1.9)
+    diff-lcs (1.4.4)
     docile (1.4.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
@@ -26,6 +27,19 @@ GEM
     rack-protection (2.1.0)
       rack
     rake (13.0.6)
+    rspec (3.10.0)
+      rspec-core (~> 3.10.0)
+      rspec-expectations (~> 3.10.0)
+      rspec-mocks (~> 3.10.0)
+    rspec-core (3.10.1)
+      rspec-support (~> 3.10.0)
+    rspec-expectations (3.10.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-mocks (3.10.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-support (3.10.2)
     ruby2_keywords (0.0.5)
     simplecov (0.21.2)
       docile (~> 1.1)
@@ -50,6 +64,7 @@ PLATFORMS
 DEPENDENCIES
   mynatra!
   rake (~> 13.0)
+  rspec
   simplecov
 
 BUNDLED WITH
