@@ -19,7 +19,6 @@ module Mynatra
       attributes.each do |attribute|
         if attribute.include? ":"
           att, type = attribute.split(':')
-          puts att
           puts "This is the type: #{type}"
         end
       end
