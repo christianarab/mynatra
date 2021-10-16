@@ -13,6 +13,16 @@ module Mynatra
     
     desc "resource [NAME] [ARG1] [ARG2]", "Generates resources (`mynatra resource post title body`)"
     def resource(name, *attributes)
+      # Todo: Add logic for field and textarea
+      # ... if ARG1:input, produce the corrosponding view element  
+      # ... if ARG2:textarea, produce the corrosponding view element 
+      attributes.each do |attribute|
+        if attribute.include? ":"
+          att, type = attribute.split(':')
+          puts att
+          puts "This is the type: #{type}"
+        end
+      end
       puts "Generating #{name} model with attributes: #{attributes}"
       Mynatra::Generators::Resource.start([ name.singularize, attributes ])
     end 
