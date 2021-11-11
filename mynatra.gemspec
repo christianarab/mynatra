@@ -27,11 +27,15 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
   
+  # Simplecov
+  spec.add_development_dependency "simplecov"
+
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
   spec.add_dependency "sinatra"
   spec.add_dependency "thor"
   spec.add_dependency "activesupport"
+
   
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html
