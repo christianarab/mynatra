@@ -1,12 +1,13 @@
 module Helpers
   module Parsers
-    def self.check_args arg
+    def check_args arg
       if arg.include? ":"
-        arg, type = arg.split ":"
-        {arg => type}
+        arg, type = arg.split(":")
+        arg = {arg => type}
       else
         arg
       end
+      arg
     end
   end
 end
