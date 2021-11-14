@@ -17,7 +17,7 @@ module Mynatra
     desc "resource [NAME] [ARG1] [ARG2]", "Generates resources (`mynatra resource post title body`)"
     def resource(name, *attributes)
       parsed_attributes = attributes.map { |e| check_args(e) }
-      Mynatra::Generators::Resource.start([ name.singularize, parsed_attributes ])
+      Mynatra::Generators::Resource.start([ name.singularize, attributes = parsed_attributes ])
     end 
   end
 end

@@ -3,8 +3,12 @@
 <div>
   <form method='POST' action='/<%= @name_plural %>/update/<%%= @<%= @name_singular %>.id %>'> 
       <% @attributes.each do |attribute| %>
-      <p> <%= attribute.capitalize %> </p> 
-      <input name="<%= attribute %>" value="<%%= @<%= @name_singular %>.<%= attribute %> %>"><br>
+        <% if attribute.is_a? Hash -%>
+        <p> <%= attribute.keys[0].to_s.capitalize %> </p> 
+        <input name="<%= attribute.keys[0].to_s %>" value="<%%= @<%= @name_singular %>.<%= attribute.keys[0].to_s %> %>"><br>
+        <% else -%>
+        <input name="<%= attribute %>" value="<%%= @<%= @name_singular %>.<%= attribute %> %>"><br>
+        <% end-%>
       <% end-%>
       <input type="submit">
   </form>

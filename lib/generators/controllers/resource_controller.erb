@@ -14,7 +14,11 @@ class <%= @name_singular.capitalize %>Controller < Sinatra::Base
   post '/<%= @name_plural %>/create' do
     <%= @name_singular %> = <%= @name_singular.capitalize %>.new
   <% @attributes.each do |attribute| %>
+  <% if attribute.is_a? Hash -%>
+    <%= @name_singular %>.<%= attribute.keys[0].to_s %> = params[:<%= attribute.keys[0].to_s %>]
+    <% else -%>
     <%= @name_singular %>.<%= attribute %> = params[:<%= attribute %>]
+    <% end-%>
   <% end-%>
     <%= @name_singular %>.save
     redirect :"<%= @name_plural %>"
@@ -25,7 +29,11 @@ class <%= @name_singular.capitalize %>Controller < Sinatra::Base
     <%= @name_singular %> = <%= @name_singular.capitalize %>.new
     <%= @name_singular %>.id = params[:id].to_i
   <% @attributes.each do |attribute| %>
+    <% if attribute.is_a? Hash -%>
+    <%= @name_singular %>.<%= attribute.keys[0].to_s %> = params[:<%= attribute.keys[0].to_s %>]
+    <% else -%>
     <%= @name_singular %>.<%= attribute %> = params[:<%= attribute %>]
+    <% end-%>
   <% end-%>
     <%= @name_singular %>.save
     redirect :"<%= @name_plural %>/#{<%= @name_singular %>.id}"
