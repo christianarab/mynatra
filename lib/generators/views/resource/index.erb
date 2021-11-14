@@ -5,9 +5,13 @@
         <h3><a href="/<%= @name_plural %>/<%%= <%= @name_singular %>.id %>"><%%= <%= @name_singular %>.id %></a></h3>
         <ul>
         <% @attributes.each do |attribute| %>
-            <li><%= attribute %>: <%%= <%= @name_singular %>.<%= attribute %> %></li>
-        <% end %>
+        <% if attribute.is_a? Hash -%>
+            <li><%= attribute.keys[0].to_s %>: <%%= <%= @name_singular %>.<%= attribute.keys[0].to_s %> %></li>
+        <% else -%>
+              <li><%= attribute %>: <%%= <%= @name_singular %>.<%= attribute %> %></li>
+        <% end -%>
         </ul>
+        <% end -%>
 <%% end %>
 
 <%%= erb :footer %>

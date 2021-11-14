@@ -1,7 +1,11 @@
 class <%= @name_singular.capitalize %>
   attr_accessor :id
 <% @attributes.each do |attribute| -%>
-  attr_accessor :<%= attribute %>
+  <% if attribute.is_a? Hash -%>
+    attr_accessor :<%= attribute.keys[0].to_s %>
+    <% else -%>
+    attr_accessor :<%= attribute %>
+  <% end -%>
 <% end -%>
 
   @@<%= @name_plural %> = []
