@@ -10,7 +10,7 @@ module Mynatra
     include Helpers::Parsers
 
     desc "new [NAME]", "Generates new mynatra project, --api for API only project"
-    option :api, :type => :boolean, :required => false
+    class_option :api, :type => :boolean, :required => false, :default => false
     def new(name)
         Mynatra::Generators::Scaffolding.start([ name.singularize, api = options[:api] ]) 
     end 
