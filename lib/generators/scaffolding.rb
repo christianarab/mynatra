@@ -8,6 +8,7 @@ module Mynatra
 
       # Takes in dir, name arguments
       argument :name, type: :string
+      class_option :api, type: :boolean
 
       # Generates directory
       def create_dir
@@ -26,14 +27,18 @@ module Mynatra
 
       # Generates public folder with CSS style sheet
       def create_public
-        directory("public", "#{name}/public", :recursive => true)
+        if options[:api] == false
+          directory("public", "#{name}/public", :recursive => true)
+        end
       end
 
       # Generates views folder
       def create_views
-        template("views/footer.erb", "#{name}/views/footer.erb")
-        template("views/getting_started.erb", "#{name}/views/getting_started.erb")
-        template("views/header.erb", "#{name}/views/header.erb")
+        if options[:api] == false
+          template("views/footer.erb", "#{name}/views/footer.erb")
+          template("views/getting_started.erb", "#{name}/views/getting_started.erb")
+          template("views/header.erb", "#{name}/views/header.erb")
+        end
       end
 
       # Sets source root directory
