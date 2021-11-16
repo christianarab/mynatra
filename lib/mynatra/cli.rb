@@ -9,10 +9,10 @@ module Mynatra
   class CLI < Thor
     include Helpers::Parsers
 
-    desc "new [NAME]", "Generates new mynatra project, --api for API only project"
+    desc "new [NAME]", "Generates new mynatra project, --api flag for API only project"
     class_option :api, :type => :boolean, :required => false, :default => false
     def new(name)
-        Mynatra::Generators::Scaffolding.start([ name.singularize, api = options[:api] ]) 
+        Mynatra::Generators::Scaffolding.start([ name.singularize, options[:api] ]) 
     end 
     
     desc "resource [NAME] [ARG1, ARG2..]", "Generates resources (`example mynatra resource post title:input body:textarea`)"
