@@ -17,24 +17,30 @@ module Mynatra
       
       # Generates app.rb file
       def create_app
-        template("app.erb", "#{name}/app.rb")
+        if options[:api]
+          template("server.erb", "#{name}/server.rb")
+        else
+          template("app.erb", "#{name}/app.rb")
+        end          
       end
 
       # Generates controller
       def create_controller
-        template("controllers/base_controller.erb", "#{name}/controllers/base_controller.rb")
+        if !options[:api]
+          template("controllers/base_controller.erb", "#{name}/controllers/base_controller.rb")
+        end
       end
 
       # Generates public folder with CSS style sheet
       def create_public
-        if options[:api] == false
+        if !options[:api]
           directory("public", "#{name}/public", :recursive => true)
         end
       end
 
       # Generates views folder
       def create_views
-        if options[:api] == false
+        if !options[:api]
           template("views/footer.erb", "#{name}/views/footer.erb")
           template("views/getting_started.erb", "#{name}/views/getting_started.erb")
           template("views/header.erb", "#{name}/views/header.erb")
