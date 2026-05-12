@@ -6,7 +6,6 @@ Gem::Specification.new do |spec|
   spec.name          = "mynatra"
   spec.version       = Mynatra::VERSION
   spec.authors       = ["christian"]
-  
 
   spec.summary       = "mynatra: the easy to use framework."
   spec.homepage      = "https://github.com/christianarab/mynatra"
